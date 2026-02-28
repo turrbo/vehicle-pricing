@@ -114,6 +114,32 @@ When detailed analysis is not possible:
 
 ### Key Considerations
 - {Relevant factors: mileage, history, market trends, seasonal factors}
+
+### NHTSA Recalls
+- {List any open recalls, or "No open recalls found"}
+
+### Market Supply
+- **Supply level**: {Flooded/High/Normal/Low/Scarce} ({count} listings found nationally)
+- **Negotiation leverage**: {High/Moderate/Low}
+- {Context on what supply level means for this purchase}
+
+### Seasonal Timing
+- {Current seasonal impact on this vehicle type, if applicable}
+- {Recommendation: buy now vs wait}
+
+### Depreciation Forecast
+- **Current value**: ${amount}
+- **6-month projected value**: ${amount} ({percent}% loss)
+- **1-year projected value**: ${amount} ({percent}% loss)
+- **2-year projected value**: ${amount} ({percent}% loss)
+
+### Estimated Annual Cost of Ownership
+- **Depreciation**: ${amount}/year
+- **Insurance**: ${amount}/year (estimate)
+- **Fuel**: ${amount}/year ({mpg} MPG, {annual_miles} miles/year)
+- **Maintenance**: ${amount}/year
+- **Total annual cost**: ${amount}/year
+- **Cost per mile**: ${amount}
 ```
 
 ### Dealer Buy Report
