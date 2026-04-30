@@ -7,14 +7,14 @@ Use this rating scale when presenting deal quality to the user:
 
 | Rating | Criteria |
 |--------|----------|
-| **Excellent Deal** | 10%+ below market average, clean history, low miles for year |
-| **Good Deal** | 5-10% below market average |
-| **Fair Deal** | Within 3-5% of market average |
-| **Above Market** | 3-10% above market average |
-| **Overpriced** | 10%+ above market average |
+| **Excellent Deal** | 10%+ below median market price, clean history, low miles for year |
+| **Good Deal** | 5-10% below median market price |
+| **Fair Deal** | Within 3-5% of median market price |
+| **Above Market** | 3-10% above median market price |
+| **Overpriced** | 10%+ above median market price |
 
-### Market Average Calculation
-To determine market average:
+### Median Market Price Calculation
+To determine median market price:
 1. Collect 5-15 comparable listings (same year, make, model, similar trim and mileage)
 2. Exclude obvious outliers (salvage titles, rebuilt, very high/low mileage anomalies)
 3. Calculate median price (more robust than mean for vehicle pricing)
@@ -57,7 +57,7 @@ A dealer reselling a vehicle has these costs:
 Max Dealer Buy Price = Expected Retail Price - Reconditioning - Pack - Profit Target - Risk Buffer
 
 Typical breakdown:
-  Expected Retail Price (market average from comparables)
+  Expected Retail Price (median retail price from comparables)
 - Reconditioning:     $800 - $2,000
 - Pack fee:           $300 - $500
 - Target profit:      $1,500 - $3,000
@@ -75,8 +75,8 @@ Typical breakdown:
 
 ### Quick Wholesale Estimate
 When detailed analysis is not possible:
-- **Rough wholesale** = 70-80% of average retail listing price
-- **Rough dealer buy** = 60-75% of average retail listing price
+- **Rough wholesale** = 70-80% of median retail listing price
+- **Rough dealer buy** = 60-75% of median retail listing price
 - Higher-demand vehicles (trucks, popular SUVs) closer to 80%
 - Lower-demand vehicles (sedans, luxury) closer to 65-70%
 
@@ -101,7 +101,7 @@ When detailed analysis is not possible:
 ### Market Comparison
 - **Listings found**: {count} comparable vehicles
 - **Price range**: ${low} - ${high}
-- **Market average**: ${median}
+- **Median market price**: ${median}
 - **Sources checked**: {list of platforms}
 
 ### Deal Rating: {RATING}
@@ -116,7 +116,7 @@ When detailed analysis is not possible:
 - {Relevant factors: mileage, history, market trends, seasonal factors}
 
 ### NHTSA Recalls
-- {List any open recalls, or "No open recalls found"}
+- {List any model-year recall campaigns found, or "No recall campaigns found"; note that completion/open status should be verified by VIN}
 
 ### Market Supply
 - **Supply level**: {Flooded/High/Normal/Low/Scarce} ({count} listings found nationally)
@@ -147,7 +147,7 @@ When detailed analysis is not possible:
 ## Dealer Wholesale Analysis: {Year} {Make} {Model} {Trim}
 
 ### Estimated Market Values
-- **Average retail listing**: ${amount}
+- **Median retail listing**: ${amount}
 - **KBB Trade-In Value**: ${amount} (if found)
 - **Estimated wholesale/auction**: ${amount}
 
@@ -165,7 +165,7 @@ When detailed analysis is not possible:
 - = Max buy price:    ${amount}
 
 ### Profit Potential
-- **Best case** (sell at market avg): ${amount} gross
-- **Realistic** (sell 5% below avg): ${amount} gross
-- **Worst case** (sell 10% below avg): ${amount} gross
+- **Best case** (sell at median market price): ${amount} gross
+- **Realistic** (sell 5% below median market price): ${amount} gross
+- **Worst case** (sell 10% below median market price): ${amount} gross
 ```

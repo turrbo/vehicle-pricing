@@ -34,7 +34,7 @@ Analyze vehicle pricing across multiple platforms to determine deal quality, fai
 
 Search multiple platforms for comparable listings. Read [references/pricing-sources.md](references/pricing-sources.md) for platform-specific URL patterns and search strategies.
 
-Run these searches using the `web-search` skill:
+Run these searches using web search:
 1. `{year} {make} {model} {trim} for sale price` (general market)
 2. `site:cargurus.com {year} {make} {model} {trim}` (CarGurus deal ratings)
 3. `kbb {year} {make} {model} {trim} fair market value {mileage} miles` (KBB valuation)
@@ -49,7 +49,7 @@ Use `browser navigate` to load results and extract price data.
 Collect from each source:
 - Number of comparable listings found
 - Price range (low to high)
-- Median/average price
+- Median market price
 - Any deal ratings (CarGurus Great/Good/Fair)
 - KBB and Edmunds valuations if available
 
@@ -57,7 +57,7 @@ Collect from each source:
 
 Read [references/deal-analysis.md](references/deal-analysis.md) for the complete deal rating methodology, mileage adjustments, and value factors.
 
-1. Calculate market average from collected comparables
+1. Calculate median market price from collected comparables
 2. Adjust for mileage differences vs comparables
 3. Factor in vehicle history if known (1-owner, accident-free, etc.)
 4. Rate the deal: Excellent / Good / Fair / Above Market / Overpriced
@@ -67,13 +67,13 @@ Read [references/deal-analysis.md](references/deal-analysis.md) for the complete
 
 ### Step 4: NHTSA Recall Check
 
-Fetch recalls from the free NHTSA API:
+Fetch model-year recall campaigns from the free NHTSA API:
 ```
 https://api.nhtsa.gov/recalls/recallsByVehicle?make={make}&model={model}&modelYear={year}
 ```
-Read the "NHTSA Recall Check" section in [references/additional-analysis.md](references/additional-analysis.md) for field extraction and presentation guidance.
+Read the "NHTSA Recall Check" section in [references/additional-analysis.md](references/additional-analysis.md) for field extraction, VIN verification caveats, and presentation guidance.
 
-Additionally, search `web-search` for `nhtsa complaints {year} {make} {model}` to surface common owner-reported issues.
+Additionally, search the web for `nhtsa complaints {year} {make} {model}` to surface common owner-reported issues.
 
 ### Step 5: Market Supply Assessment
 
@@ -100,7 +100,7 @@ Read the "Depreciation Forecasting" section in [references/additional-analysis.m
 1. Determine the vehicle's current age
 2. Apply the depreciation rate for that age bracket, adjusted by make/model modifier
 3. Project value at 6 months, 1 year, and 2 years
-4. Search `web-search` for `{make} {model} depreciation rate resale value` for model-specific context
+4. Search the web for `{make} {model} depreciation rate resale value` for model-specific context
 
 ### Step 8: Cost of Ownership Estimate
 
@@ -138,7 +138,7 @@ Use the output templates from [references/deal-analysis.md](references/deal-anal
 Always include:
 - Sources checked with dates
 - Number of comparables found
-- Open recalls (if any)
+- Recall campaigns found, plus VIN verification caveat
 - Market supply level and negotiation leverage
 - Seasonal timing impact
 - Depreciation projection (6mo / 1yr / 2yr)

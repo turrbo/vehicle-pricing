@@ -42,7 +42,7 @@ Example: 2021 vehicle (4 years old), current value $25,000
 ```
 
 ### Search Strategy for Depreciation Context
-Use `web-search` to search:
+Use web search to search:
 - `{make} {model} depreciation rate` for model-specific data
 - `{make} {model} resale value retention` for brand reputation context
 
@@ -71,8 +71,8 @@ Annual Fuel Cost = (Annual Miles / Combined MPG) x Price Per Gallon
 
 Default assumptions if user doesn't specify:
 - Annual miles: 12,000
-- Gas price: search current national average via web-search, or use $3.50/gal as fallback
-- MPG: search "{year} {make} {model} {trim} mpg" via web-search
+- Gas price: search current national average via web search, or use $3.50/gal as fallback
+- MPG: search "{year} {make} {model} {trim} mpg" via web search
 ```
 
 #### Maintenance Cost Estimates by Category
@@ -100,7 +100,7 @@ Cost Per Mile = 5-Year Total / (annual miles x 5)
 ```
 
 ### Search Strategy
-Use `web-search` to search:
+Use web search to search:
 - `{year} {make} {model} cost of ownership` for model-specific data
 - `{year} {make} {model} common problems maintenance` for reliability context
 - `{year} {make} {model} mpg fuel economy` for fuel cost accuracy
@@ -134,7 +134,7 @@ Determine the current month and vehicle type, then flag:
 https://api.nhtsa.gov/recalls/recallsByVehicle?make={make}&model={model}&modelYear={year}
 ```
 - Free, no authentication required
-- Returns JSON with all recalls for that vehicle
+- Returns JSON with recall campaigns for the requested make/model/model year
 
 ### Key Fields to Extract
 - `NHTSACampaignNumber`: Unique recall ID
@@ -145,13 +145,13 @@ https://api.nhtsa.gov/recalls/recallsByVehicle?make={make}&model={model}&modelYe
 - `ReportReceivedDate`: When the recall was issued
 
 ### How to Present
-- List any open recalls with component, summary, and remedy
-- Note whether recalls are safety-critical vs minor
-- Flag if multiple recalls exist (may indicate systemic quality issues for that model year)
-- Remind user to verify recall completion via CARFAX or dealer service records if buying used
+- List any recall campaigns with component, summary, and remedy
+- Note whether campaigns are safety-critical vs minor
+- Flag if multiple campaigns exist (may indicate systemic quality issues for that model year)
+- Remind user that the make/model/model-year endpoint does not prove whether a specific VIN has an open or completed recall; verify VIN status via NHTSA VIN lookup, CARFAX, or dealer service records before buying used
 
 ### NHTSA Complaints (Supplemental)
-Search `web-search` for `nhtsa complaints {year} {make} {model}` to find common owner-reported issues that may not have resulted in formal recalls but affect reliability and value.
+Search the web for `nhtsa complaints {year} {make} {model}` to find common owner-reported issues that may not have resulted in formal recalls but affect reliability and value.
 
 ## Salvage/Rebuilt Title Valuation
 
@@ -182,7 +182,7 @@ Search `web-search` for `nhtsa complaints {year} {make} {model}` to find common 
 - Some dealers avoid entirely; others specialize in this segment
 
 ### Search Strategy
-- `web-search` for `{year} {make} {model} salvage value` or `rebuilt title value`
+- Search the web for `{year} {make} {model} salvage value` or `rebuilt title value`
 - Check if specific state has rebuilt title inspection requirements
 
 ## Market Supply Indicator
@@ -207,7 +207,7 @@ Count listings found across platforms during the pricing research phase:
 
 ### Search Strategy
 The listing count from AutoTempest is the best single indicator since it aggregates multiple platforms. Also note:
-- `web-search` for `{year} {make} {model} for sale` and note total results referenced
+- Search the web for `{year} {make} {model} for sale` and note total results referenced
 - If a specific trim is scarce but the model isn't, note that distinction
 - Regional supply may differ from national (use zip/radius on AutoTempest)
 

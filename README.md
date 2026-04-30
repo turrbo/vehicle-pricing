@@ -19,7 +19,7 @@ Copy this repository or the skill directory into your agent's skills directory, 
 
 ```bash
 # example
-cp -R vehicle-pricing ~/.claude/skills/vehicle-pricing
+cp -R vehicle-pricing ~/.codex/skills/vehicle-pricing
 ```
 
 ## Repository layout
